@@ -7,8 +7,9 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(45) NOT NULL,
     userName VARCHAR(45) NOT NULL UNIQUE,
+    -- senha padrão é o hash de '123Mudar' usando o algoritmo bcrypt para 10 salt rounds
     password VARCHAR(60) NOT NULL DEFAULT '$2a$10$LvGI7PyNvOtu3ykBJJ2ZJeNx08OJqAh4jBEEgeektDZPO/oyFQWWy',
-    email VARCHAR(45) NOT NULL,
+    email VARCHAR(45) UNIQUE NOT NULL,
     createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
