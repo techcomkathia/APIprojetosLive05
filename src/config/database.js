@@ -5,7 +5,7 @@ const { Sequelize } = require('sequelize');
 // DB_HOST, DB_USER, DB_PASS 
 // DB_NAME, DB_DIALECT
 
-const sequelize = new Sequelize('projetosLive06', 'root', '', {
+const sequelize = new Sequelize('projetosLive05', 'root', 'km2015km', {
   host: 'localhost',
   dialect: 'mysql'
 });
