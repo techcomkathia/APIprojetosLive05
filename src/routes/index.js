@@ -8,13 +8,15 @@ const authenticateToken = require('../middleware/authMiddleware');
 
 // Rota de login
 router.post('/login', authController.login);
-
+// Rota raiz
 router.get('/', () => {
     console.log('Rota raiz');
 });
+//cria um novo usuário
+router.post('/users', userController.postUser);
 
-// // Rota pública
-// router.get('/users', userController.getUsers);
+// Rota pública
+router.get('/users', userController.getUsers);
 
 // Rota protegida
 router.get('/projects', authenticateToken, projectController.getProjects);
