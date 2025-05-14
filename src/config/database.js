@@ -6,7 +6,7 @@ require('dotenv').config();
 //   dialect: 'mysql'
 // });
 
-const sequelize = new Sequelize(process.env.DB_NAME, 'root', 'km2015km', {
+const sequelize = new Sequelize(process.env.DB_NAME, 'root', process.env.DB_PASS, {
   host: 'localhost',
   dialect: 'mysql'
 });

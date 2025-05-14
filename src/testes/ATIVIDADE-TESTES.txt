@@ -1,0 +1,47 @@
+1. Criação de usuário - sucesso
+Crie um teste que envie uma requisição POST /users com os seguintes dados válidos:
+name: "Lucas"
+userName: "lucasdev"
+email: "lucas@email.com"
+password: "123456"
+confirmePassword: "123456"
+
+O teste deve verificar se o status de resposta é 201 e se o corpo da resposta contém a chave id.
+-----------------------------------------------------------------------------------------
+2. Criação de usuário - senhas diferentes
+Crie um teste que envie uma requisição POST /users com senhas diferentes nos campos password e confirmePassword.
+
+Exemplo:
+password: "123456"
+confirmePassword: "654321"
+
+O teste deve verificar se o status retornado é 400 e se a mensagem no corpo da resposta é "As senhas devem ser iguais".
+-----------------------------------------------------------------------------------------
+3. Criação de usuário - campos vazios
+Enunciado:
+
+Crie um teste que envie todos os campos da requisição POST /users como strings vazias.
+O teste deve retornar o status 400 e a mensagem "Todos os campos devem ser preenchidos" no corpo da resposta.
+-------------------------------------------------------------------------------------------
+
+
+4.Login - sucesso
+Após criar um usuário válido com POST /users, envie uma requisição POST /login com o email e password correspondentes.
+
+O teste deve verificar se o status de resposta é 200 e se o corpo da resposta contém um campo token.
+
+-----------------------------------------------------------------------------------------
+5. Login - senha incorreta
+Envie uma requisição POST /login com o email de um usuário existente, mas com uma senha incorreta.
+
+O teste deve verificar se o status retornado é 401 e se a mensagem é "Credenciais inválidas".
+
+------------------------------------------------------------------------------------------
+6. Acesso à rota protegida com token
+Enunciado:
+
+Faça login com um usuário válido, capture o token retornado e envie uma requisição GET para uma rota protegida (/protegida, por exemplo).
+
+Inclua o token no header Authorization: Bearer <token>.
+
+O teste deve garantir que a resposta tem status 200 e que o corpo da resposta contenha a mensagem "Acesso autorizado".
